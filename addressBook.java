@@ -1,17 +1,24 @@
 package javaAddressBookNew;
-
-
-
+/************************************************************************************************
+ * 
+ * purpose: address book management system
+ * 
+ * 
+ * @author asmita thorat
+ *
+ *
+ *since 23/08/2020
+ *
+ ***********************************************************************************************/
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//importing person id
 import static javaAddressBookNew.Person.id;
-
-
 public class addressBook {
-    private static Scanner in = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);		
     private static File file = new File("Addresses.txt");
     static List<Person> people = new ArrayList<>();
 
@@ -21,12 +28,13 @@ public class addressBook {
     }
 
     private static void findPerson() throws IOException {
+    	// looking for a person using either name or surname
         System.out.println("1. Find with name");
         System.out.println("2. Find with surname");
 
         String choice;
         do {
-            choice = in.nextLine();
+            choice = in.nextLine();   //choices to search the person
             switch (choice) {
                 case "1":
                     findByName();
@@ -42,7 +50,7 @@ public class addressBook {
         showMainMenu();
     }
 
-    private static void findBySurname() {
+    private static void findBySurname() {				//finding person based on surname
         System.out.print("Enter surname: ");
         String surnameToFind = in.nextLine();
         int matches = 0;
@@ -58,7 +66,7 @@ public class addressBook {
     }
 
     private static void findByName() {
-        System.out.print("Enter name: ");
+        System.out.print("Enter name: ");				///finding person based on name
         String nameToFind = in.nextLine();
         int matches = 0;
         for(Person person : people) {       
